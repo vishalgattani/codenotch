@@ -29,6 +29,8 @@ enum ProviderGlyph: String, Codable, Equatable {
     /// own weekly cache — a ring wearing this one is the bot's allowance,
     /// not the CLI's Grok Build.
     case grokbot
+    /// OpenClaw's crab, drawn as the 🦀 emoji rather than a template mark.
+    case openclaw
     case opencode
     case commandcode
     case copilot
@@ -51,6 +53,10 @@ enum ProviderGlyph: String, Codable, Equatable {
 
     /// If an asset with this name is in the bundle it wins over the traced
     /// outline — drop a PDF/SVG export from Figma in and it is picked up.
+    /// A full-colour emoji drawn in place of a monochrome mark, for brands
+    /// whose mark is one.
+    var emoji: String? { self == .openclaw ? "🦀" : nil }
+
     var assetName: String { self == .ollamaLocal ? "glyph-ollama" : "glyph-\(rawValue)" }
 
     /// How much to scale this mark so it reads the same size as the others.
@@ -75,6 +81,7 @@ enum ProviderGlyph: String, Codable, Equatable {
         case .grok:   return 1.0
         // The blob's ink already fills most of its box, so no evening out.
         case .grokbot: return 1.0
+        case .openclaw: return 0.9
         case .opencode: return 0.95
         case .commandcode: return 0.96
         case .copilot: return 0.96
@@ -137,7 +144,7 @@ enum ProviderGlyph: String, Codable, Equatable {
         // glyph-kimi in the asset catalogue are drawn instead.
         case .glm:    return GlyphOutline.glm
         case .devin, .qwen, .gemma, .meta, .deepseek, .mistral, .lmstudio,
-             .omlx, .qianwenAI, .qoder, .amp, .apify, .llamaCpp, .grokbot: return []
+             .omlx, .qianwenAI, .qoder, .amp, .apify, .llamaCpp, .grokbot, .openclaw: return []
         case .grok:   return GlyphOutline.grok
         case .opencode: return GlyphOutline.opencode
         case .commandcode: return GlyphOutline.commandcode
@@ -185,6 +192,10 @@ struct ProviderGlyphView: View {
                 Image(nsImage: image)
                     .resizable()
                     .scaledToFit()
+            } else if let emoji = glyph.emoji {
+                Text(emoji)
+                    .font(.system(size: size * 0.8))
+                    .minimumScaleFactor(0.1)
             } else if let image = NSImage(named: glyph.assetName) {
                 Image(nsImage: image)
                     .renderingMode(.template)
