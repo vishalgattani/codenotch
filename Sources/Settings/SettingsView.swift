@@ -88,7 +88,7 @@ private enum SettingsSection: String, CaseIterable, Identifiable, Hashable {
         case .lmstudio:      return L10n.t("Models loaded in LM Studio on this Mac.")
         case .omlx:          return L10n.t("Models loaded in oMLX on this Mac.")
         case .openclaw:      return L10n.t("How full the local OpenClaw agent's context is.")
-        case .system:        return L10n.t("This Mac's CPU and GPU load.")
+        case .system:        return L10n.t("This Mac's CPU and GPU load and free disk space.")
         case .customEndpoints: return L10n.t("OpenAI-compatible APIs, local runtimes and custom proxies.")
         case .remoteHosts:    return L10n.t("Claude and Codex accounts on servers you reach over SSH.")
         case .appearance:    return L10n.t("How the notch looks and where it sits.")
@@ -773,6 +773,15 @@ struct SettingsView: View {
                 Form {
                     Section(L10n.t("Monitoring")) {
                         SystemSettingsRow(preferences: preferences, store: usageStore)
+                    }
+                    Section {
+                        SystemRingColorsRow(store: usageStore, providerID: SystemProviders.cpuID, title: "CPU")
+                        SystemRingColorsRow(store: usageStore, providerID: SystemProviders.gpuID, title: "GPU")
+                        SystemRingColorsRow(store: usageStore, providerID: SystemProviders.diskID, title: L10n.t("Disk free"))
+                    } header: {
+                        Text(L10n.t("Ring colours"))
+                    } footer: {
+                        Text(L10n.t("Each ring is green until it crosses yellow, then red. CPU and GPU worsen as load rises; Disk free worsens as free space falls."))
                     }
                 }
                 .formStyle(.grouped)

@@ -17,11 +17,13 @@ struct CPUTicks: Equatable {
 enum SystemUsageError: LocalizedError, Equatable {
     case cpuUnavailable
     case gpuUnavailable
+    case diskUnavailable
 
     var errorDescription: String? {
         switch self {
         case .cpuUnavailable: return L10n.t("CPU load could not be read")
         case .gpuUnavailable: return L10n.t("GPU utilisation could not be read")
+        case .diskUnavailable: return L10n.t("Free disk space could not be read")
         }
     }
 }
@@ -46,12 +48,41 @@ enum SystemUsage {
         return min(max(peak / 100, 0), 1)
     }
 
-    static func window(id: String, label: String, fraction: Double) -> LimitWindow {
+    /// The free share of a volume, 0...1. Nil without a positive total.
+    static func freeFraction(available: Int64?, total: Int?) -> Double? {
+        guard let available, let total, total > 0 else { return nil }
+        return min(max(Double(available) / Double(total), 0), 1)
+    }
+
+    /// A load ring (CPU, GPU): the arc fills by load, coloured by `thresholds`.
+    static func window(id: String, label: String, fraction: Double,
+                       thresholds: RingThresholds? = nil) -> LimitWindow {
         LimitWindow(id: id, label: label, usedFraction: fraction,
-                    detail: "\(label) \(Int((fraction * 100).rounded()))%")
+                    detail: "\(label) \(Int((fraction * 100).rounded()))%",
+                    bandOverride: thresholds?.band(for: fraction))
+    }
+
+    /// The disk ring fills by what is *free*, so its arc and number both say
+    /// the free share (90% means 90% free). That is the reverse of the
+    /// other rings, so the colour never comes from `usedFraction`: it is
+    /// always `bandOverride`, judged on the free share by `thresholds`.
+    static func diskWindow(freeFraction: Double, thresholds: RingThresholds) -> LimitWindow {
+        LimitWindow(id: "disk", label: L10n.t("Disk free"), usedFraction: freeFraction,
+                    detail: L10n.t("Disk \(Int((freeFraction * 100).rounded()))% free"),
+                    bandOverride: thresholds.band(for: freeFraction))
     }
 
     // MARK: Reading the machine
+
+    /// The startup volume's free share, counting space macOS would purge
+    /// for an important write the way Finder does.
+    static func readStartupVolumeFreeFraction() -> Double? {
+        let values = try? URL(fileURLWithPath: "/").resourceValues(forKeys: [
+            .volumeAvailableCapacityForImportantUsageKey, .volumeTotalCapacityKey,
+        ])
+        return freeFraction(available: values?.volumeAvailableCapacityForImportantUsage,
+                            total: values?.volumeTotalCapacity)
+    }
 
     static func readCPUTicks() -> CPUTicks? {
         var info = host_cpu_load_info_data_t()
