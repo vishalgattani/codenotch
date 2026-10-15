@@ -26,7 +26,7 @@ extension View {
 /// crossing-and-notification machinery it switches is Notifications' to
 /// explain.
 private enum SettingsSection: String, CaseIterable, Identifiable, Hashable {
-    case accounts, phone, deepseek, ollama, lmstudio, omlx, openclaw, customEndpoints, remoteHosts, appearance, notifications, costs, general
+    case accounts, phone, deepseek, ollama, lmstudio, omlx, openclaw, system, customEndpoints, remoteHosts, appearance, notifications, costs, general
 
     /// The sections the sidebar lists; Phone only once pairing is offered.
     static var visible: [SettingsSection] {
@@ -36,7 +36,7 @@ private enum SettingsSection: String, CaseIterable, Identifiable, Hashable {
     /// Providers with a pane of their own. They are accounts too, so the
     /// sidebar nests them under Accounts rather than listing them beside
     /// Appearance and General, where they read as app-wide settings.
-    static let providerPanes: [SettingsSection] = [.deepseek, .ollama, .lmstudio, .omlx, .openclaw, .customEndpoints, .remoteHosts]
+    static let providerPanes: [SettingsSection] = [.deepseek, .ollama, .lmstudio, .omlx, .openclaw, .system, .customEndpoints, .remoteHosts]
 
     /// The sidebar's own rows: everything visible that is not nested.
     static var topLevel: [SettingsSection] {
@@ -54,6 +54,7 @@ private enum SettingsSection: String, CaseIterable, Identifiable, Hashable {
         case .lmstudio:      return "LM Studio"
         case .omlx:          return "oMLX"
         case .openclaw:      return "OpenClaw"
+        case .system:        return L10n.t("System")
         case .customEndpoints: return L10n.t("Custom Endpoints")
         case .remoteHosts:    return L10n.t("Remote Hosts")
         case .appearance:    return L10n.t("Appearance")
@@ -72,6 +73,7 @@ private enum SettingsSection: String, CaseIterable, Identifiable, Hashable {
         case .lmstudio: return .lmstudio
         case .omlx:     return .omlx
         case .openclaw: return .openclaw
+        case .system:   return .systemCPU
         default:       return nil
         }
     }
@@ -86,6 +88,7 @@ private enum SettingsSection: String, CaseIterable, Identifiable, Hashable {
         case .lmstudio:      return L10n.t("Models loaded in LM Studio on this Mac.")
         case .omlx:          return L10n.t("Models loaded in oMLX on this Mac.")
         case .openclaw:      return L10n.t("How full the local OpenClaw agent's context is.")
+        case .system:        return L10n.t("This Mac's CPU and GPU load.")
         case .customEndpoints: return L10n.t("OpenAI-compatible APIs, local runtimes and custom proxies.")
         case .remoteHosts:    return L10n.t("Claude and Codex accounts on servers you reach over SSH.")
         case .appearance:    return L10n.t("How the notch looks and where it sits.")
@@ -104,6 +107,7 @@ private enum SettingsSection: String, CaseIterable, Identifiable, Hashable {
         case .lmstudio:      return "cpu"
         case .omlx:          return "cpu"
         case .openclaw:      return "text.bubble"
+        case .system:        return "cpu"
         case .customEndpoints: return "network"
         case .remoteHosts:    return "server.rack"
         case .appearance:    return "paintbrush.fill"
@@ -125,6 +129,7 @@ private enum SettingsSection: String, CaseIterable, Identifiable, Hashable {
         case .lmstudio:      return .purple
         case .omlx:          return .purple
         case .openclaw:      return .red
+        case .system:        return .gray
         case .customEndpoints: return .indigo
         case .remoteHosts:    return .orange
         case .appearance:    return .indigo
@@ -759,6 +764,15 @@ struct SettingsView: View {
                 Form {
                     Section("Connection") {
                         OpenClawSettingsRow(preferences: preferences, store: usageStore)
+                    }
+                }
+                .formStyle(.grouped)
+            }
+        case .system:
+            if let usageStore {
+                Form {
+                    Section(L10n.t("Monitoring")) {
+                        SystemSettingsRow(preferences: preferences, store: usageStore)
                     }
                 }
                 .formStyle(.grouped)

@@ -595,6 +595,7 @@ struct ProviderSnapshot: Identifiable, Equatable {
         case "ollama-local": return L10n.t("Start Ollama to monitor your local models", locale: locale)
         case "lmstudio":     return L10n.t("Start LM Studio's server to monitor your local models", locale: locale)
         case "openclaw":     return L10n.t("Install OpenClaw to see its agent's context fill", locale: locale)
+        case "system-cpu", "system-gpu": return L10n.t("Switch on System in Settings to show CPU and GPU load.", locale: locale)
         case "omlx":         return L10n.t("Start oMLX's server to monitor your local models", locale: locale)
         default:           return L10n.t("Sign in to \(displayName) to read your usage", locale: locale)
         }
