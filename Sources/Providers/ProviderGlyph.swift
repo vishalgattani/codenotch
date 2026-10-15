@@ -31,6 +31,9 @@ enum ProviderGlyph: String, Codable, Equatable {
     case grokbot
     /// OpenClaw's crab, drawn as the 🦀 emoji rather than a template mark.
     case openclaw
+    /// This Mac's own CPU and GPU load, drawn as SF Symbols.
+    case systemCPU = "system-cpu"
+    case systemGPU = "system-gpu"
     case opencode
     case commandcode
     case copilot
@@ -57,6 +60,15 @@ enum ProviderGlyph: String, Codable, Equatable {
     /// whose mark is one.
     var emoji: String? { self == .openclaw ? "🦀" : nil }
 
+    /// An SF Symbol drawn in place of a brand mark, for rings that are not a brand.
+    var symbolName: String? {
+        switch self {
+        case .systemCPU: return "cpu"
+        case .systemGPU: return "cube.transparent"
+        default: return nil
+        }
+    }
+
     var assetName: String { self == .ollamaLocal ? "glyph-ollama" : "glyph-\(rawValue)" }
 
     /// How much to scale this mark so it reads the same size as the others.
@@ -82,6 +94,7 @@ enum ProviderGlyph: String, Codable, Equatable {
         // The blob's ink already fills most of its box, so no evening out.
         case .grokbot: return 1.0
         case .openclaw: return 0.9
+        case .systemCPU, .systemGPU: return 0.85
         case .opencode: return 0.95
         case .commandcode: return 0.96
         case .copilot: return 0.96
@@ -144,7 +157,8 @@ enum ProviderGlyph: String, Codable, Equatable {
         // glyph-kimi in the asset catalogue are drawn instead.
         case .glm:    return GlyphOutline.glm
         case .devin, .qwen, .gemma, .meta, .deepseek, .mistral, .lmstudio,
-             .omlx, .qianwenAI, .qoder, .amp, .apify, .llamaCpp, .grokbot, .openclaw: return []
+             .omlx, .qianwenAI, .qoder, .amp, .apify, .llamaCpp, .grokbot, .openclaw,
+             .systemCPU, .systemGPU: return []
         case .grok:   return GlyphOutline.grok
         case .opencode: return GlyphOutline.opencode
         case .commandcode: return GlyphOutline.commandcode
@@ -196,6 +210,10 @@ struct ProviderGlyphView: View {
                 Text(emoji)
                     .font(.system(size: size * 0.8))
                     .minimumScaleFactor(0.1)
+            } else if let symbol = glyph.symbolName {
+                Image(systemName: symbol)
+                    .resizable()
+                    .scaledToFit()
             } else if let image = NSImage(named: glyph.assetName) {
                 Image(nsImage: image)
                     .renderingMode(.template)
