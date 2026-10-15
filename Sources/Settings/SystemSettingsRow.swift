@@ -42,9 +42,9 @@ struct SystemSettingsRow: View {
 
             HStack(spacing: 10) {
                 ProviderGlyphView(glyph: .systemDisk, size: 16)
-                Text(L10n.t("Disk free ring"))
+                Text(L10n.t("Disk used ring"))
                 Spacer()
-                Toggle(L10n.t("Show free disk space"), isOn: Binding(
+                Toggle(L10n.t("Show disk space used"), isOn: Binding(
                     get: { diskEnabled },
                     set: { on in
                         preferences.setConnected(on, for: SystemProviders.diskID)
@@ -73,7 +73,7 @@ struct SystemSettingsRow: View {
 }
 
 /// The colour bands of each System ring: where it turns yellow and where red.
-/// Load rings worsen as they rise; the disk ring worsens as free space falls.
+/// All of them worsen as they rise.
 struct SystemRingColorsRow: View {
     @ObservedObject var store: UsageStore
     let providerID: String
@@ -99,9 +99,9 @@ struct SystemRingColorsRow: View {
                 }
                 .controlSize(.small)
             }
-            limit(thresholds.higherIsWorse ? L10n.t("Yellow from") : L10n.t("Yellow below"),
+            limit(L10n.t("Yellow from"),
                   color: Palette.watch, value: \.watch)
-            limit(thresholds.higherIsWorse ? L10n.t("Red from") : L10n.t("Red below"),
+            limit(L10n.t("Red from"),
                   color: Palette.critical, value: \.critical)
         }
     }

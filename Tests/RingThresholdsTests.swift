@@ -10,21 +10,20 @@ final class RingThresholdsTests: XCTestCase {
         XCTAssertNil(SystemUsage.freeFraction(available: nil, total: 100))
     }
 
-    func testDiskWindowShowsTheFreeShareAndBandsOnIt() {
+    func testDiskWindowShowsTheUsedShareAndBandsOnIt() throws {
         let thresholds = RingThresholds.defaults(for: SystemProviders.diskID)
         let roomy = SystemUsage.diskWindow(freeFraction: 0.9, thresholds: thresholds)
-        XCTAssertEqual(roomy.usedFraction, 0.9)
-        XCTAssertEqual(roomy.detail, "Disk 90% free")
+        XCTAssertEqual(try XCTUnwrap(roomy.usedFraction), 0.1, accuracy: 1e-9)
+        XCTAssertEqual(roomy.detail, "Disk 10% used")
         XCTAssertEqual(roomy.bandOverride, .ample)
         XCTAssertEqual(SystemUsage.diskWindow(freeFraction: 0.35, thresholds: thresholds).bandOverride, .watch)
         XCTAssertEqual(SystemUsage.diskWindow(freeFraction: 0.10, thresholds: thresholds).bandOverride, .critical)
     }
 
-    func testDiskDefaultsFallAsFreeSpaceFalls() {
-        let t = RingThresholds.defaults(for: SystemProviders.diskID)
+    func testFreeSpaceDirectionStillWorks() {
+        let t = RingThresholds(watch: 0.50, critical: 0.20, higherIsWorse: false)
         XCTAssertEqual(t.band(for: 0.50), .ample)
         XCTAssertEqual(t.band(for: 0.499), .watch)
-        XCTAssertEqual(t.band(for: 0.20), .watch)
         XCTAssertEqual(t.band(for: 0.199), .critical)
     }
 
@@ -48,9 +47,12 @@ final class RingThresholdsTests: XCTestCase {
         defaults.removePersistentDomain(forName: "RingThresholdsTests")
         XCTAssertEqual(RingThresholds.load(for: SystemProviders.diskID, from: defaults),
                        RingThresholds.defaults(for: SystemProviders.diskID))
-        let custom = RingThresholds(watch: 0.4, critical: 0.1, higherIsWorse: false)
+        let custom = RingThresholds(watch: 0.6, critical: 0.9, higherIsWorse: true)
         RingThresholds.save(custom, for: SystemProviders.diskID, to: defaults)
         XCTAssertEqual(RingThresholds.load(for: SystemProviders.diskID, from: defaults), custom)
+        RingThresholds.save(RingThresholds(watch: 0.5, critical: 0.2, higherIsWorse: false), for: SystemProviders.diskID, to: defaults)
+        XCTAssertEqual(RingThresholds.load(for: SystemProviders.diskID, from: defaults),
+                       RingThresholds.defaults(for: SystemProviders.diskID))
         XCTAssertEqual(RingThresholds.load(for: SystemProviders.gpuID, from: defaults),
                        RingThresholds.defaults(for: SystemProviders.gpuID))
         RingThresholds.reset(for: SystemProviders.diskID, in: defaults)
@@ -60,6 +62,6 @@ final class RingThresholdsTests: XCTestCase {
 
     func testDiskProviderReportsTheFreeShare() async throws {
         let snapshot = try await SystemDiskProvider(read: { 0.15 }).fetchSnapshot()
-        XCTAssertEqual(snapshot.windows.first?.usedFraction, 0.15)
+        XCTAssertEqual(snapshot.windows.first?.usedFraction ?? -1, 0.85, accuracy: 1e-9)
     }
 }

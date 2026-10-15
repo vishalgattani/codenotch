@@ -65,8 +65,7 @@ actor SystemGPUProvider: UsageProvider {
     }
 }
 
-/// How much of the startup volume is free. Off until switched on in Settings.
-/// The ring fills by the free share; see `SystemUsage.diskWindow`.
+/// How much of the startup volume is in use. Off until switched on in Settings.
 actor SystemDiskProvider: UsageProvider {
     nonisolated let id = SystemProviders.diskID
     nonisolated let displayName = L10n.t("Disk")
@@ -79,7 +78,7 @@ actor SystemDiskProvider: UsageProvider {
     }
 
     nonisolated var isVisibleWhenAbsent: Bool { false }
-    nonisolated var signInRoute: SignInRoute { .guidance(L10n.t("Switch on Disk free in System settings to show free disk space.")) }
+    nonisolated var signInRoute: SignInRoute { .guidance(L10n.t("Switch on Disk used in System settings to show disk space used.")) }
 
     func fetchSnapshot() async throws -> ProviderSnapshot {
         guard let free = read() else { throw SystemUsageError.diskUnavailable }

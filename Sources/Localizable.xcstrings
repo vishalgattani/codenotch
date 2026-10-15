@@ -61119,112 +61119,6 @@
         }
       }
     },
-    "Disk free": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "磁盘可用"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "磁碟可用"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Disque libre"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Freier Speicher"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ディスク空き"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Disco livre"
-          }
-        },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Свободно на диске"
-          }
-        },
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Вільно на диску"
-          }
-        }
-      }
-    },
-    "Disk %lld%% free": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "磁盘可用 %lld%%"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "磁碟可用 %lld%%"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Disque : %lld %% libre"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Speicher %lld %% frei"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ディスク空き %lld%%"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Disco %lld%% livre"
-          }
-        },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Диск: свободно %lld%%"
-          }
-        },
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Диск: вільно %lld%%"
-          }
-        }
-      }
-    },
     "Disk": {
       "extractionState": "manual",
       "localizations": {
@@ -61274,218 +61168,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Диск"
-          }
-        }
-      }
-    },
-    "Switch on Disk free in System settings to show free disk space.": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "在“系统”设置中打开“磁盘可用”以显示可用磁盘空间。"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "在「系統」設定中開啟「磁碟可用」以顯示可用磁碟空間。"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Activez Disque libre dans les réglages Système pour afficher l'espace disque libre."
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aktiviere „Freier Speicher“ in den System-Einstellungen, um den freien Speicherplatz anzuzeigen."
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "「システム」設定で「ディスク空き」をオンにすると空き容量が表示されます。"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ative Disco livre nos ajustes de Sistema para mostrar o espaço livre em disco."
-          }
-        },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Включите «Свободно на диске» в настройках «Система», чтобы показывать свободное место."
-          }
-        },
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Увімкніть «Вільно на диску» в налаштуваннях «Система», щоб показувати вільне місце."
-          }
-        }
-      }
-    },
-    "This Mac's CPU and GPU load and free disk space.": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "这台 Mac 的 CPU 和 GPU 负载以及可用磁盘空间。"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "這台 Mac 的 CPU 與 GPU 負載以及可用磁碟空間。"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "La charge CPU et GPU de ce Mac et son espace disque libre."
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "CPU- und GPU-Last sowie freier Speicherplatz dieses Mac."
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "この Mac の CPU と GPU の負荷、および空きディスク容量。"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A carga de CPU e GPU deste Mac e o espaço livre em disco."
-          }
-        },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Нагрузка CPU и GPU этого Mac и свободное место на диске."
-          }
-        },
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Навантаження CPU та GPU цього Mac і вільне місце на диску."
-          }
-        }
-      }
-    },
-    "Disk free ring": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "磁盘可用圆环"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "磁碟可用圓環"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Anneau Disque libre"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ring „Freier Speicher“"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ディスク空きリング"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Anel de disco livre"
-          }
-        },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Кольцо свободного места"
-          }
-        },
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Кільце вільного місця"
-          }
-        }
-      }
-    },
-    "Show free disk space": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "显示可用磁盘空间"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "顯示可用磁碟空間"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Afficher l'espace disque libre"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Freien Speicherplatz anzeigen"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "空きディスク容量を表示"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mostrar espaço livre em disco"
-          }
-        },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Показывать свободное место"
-          }
-        },
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Показувати вільне місце"
           }
         }
       }
@@ -61596,59 +61278,6 @@
         }
       }
     },
-    "Yellow below": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "低于此值为黄色"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "低於此值為黃色"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Jaune sous"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gelb unter"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "黄色:未満"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Amarelo abaixo de"
-          }
-        },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Жёлтый ниже"
-          }
-        },
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Жовтий нижче"
-          }
-        }
-      }
-    },
     "Red from": {
       "extractionState": "manual",
       "localizations": {
@@ -61698,59 +61327,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Червоний від"
-          }
-        }
-      }
-    },
-    "Red below": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "低于此值为红色"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "低於此值為紅色"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rouge sous"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rot unter"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "赤:未満"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vermelho abaixo de"
-          }
-        },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Красный ниже"
-          }
-        },
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Червоний нижче"
           }
         }
       }
@@ -61808,55 +61384,373 @@
         }
       }
     },
-    "Each ring is green until it crosses yellow, then red. CPU and GPU worsen as load rises; Disk free worsens as free space falls.": {
+    "Disk used": {
       "extractionState": "manual",
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "每个圆环在越过黄色界限前为绿色,之后变黄,再变红。CPU 和 GPU 随负载升高而变差;磁盘可用随可用空间减少而变差。"
+            "value": "磁盘已用"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "每個圓環在越過黃色界限前為綠色,之後變黃,再變紅。CPU 與 GPU 隨負載升高而變差;磁碟可用隨可用空間減少而變差。"
+            "value": "磁碟已用"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Chaque anneau reste vert jusqu'au seuil jaune, puis rouge. CPU et GPU empirent quand la charge monte ; Disque libre empire quand l'espace libre diminue."
+            "value": "Disque utilisé"
           }
         },
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Jeder Ring bleibt grün bis zur gelben Grenze, dann rot. CPU und GPU werden mit steigender Last schlechter, freier Speicher mit sinkendem Platz."
+            "value": "Belegter Speicher"
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "各リングは黄色の境界までは緑、その後黄色、さらに赤になります。CPU と GPU は負荷が上がるほど、ディスク空きは空き容量が減るほど悪化します。"
+            "value": "ディスク使用"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Cada anel fica verde até cruzar o amarelo, depois vermelho. CPU e GPU pioram com o aumento da carga; Disco livre piora com a queda do espaço livre."
+            "value": "Disco usado"
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Каждое кольцо зелёное до жёлтой границы, затем красное. CPU и GPU ухудшаются с ростом нагрузки, свободное место — с его уменьшением."
+            "value": "Занято на диске"
           }
         },
         "uk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Кожне кільце зелене до жовтої межі, потім червоне. CPU та GPU погіршуються зі зростанням навантаження, вільне місце — з його зменшенням."
+            "value": "Зайнято на диску"
+          }
+        }
+      }
+    },
+    "Disk %lld%% used": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "磁盘已用 %lld%%"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "磁碟已用 %lld%%"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disque : %lld %% utilisé"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Speicher %lld %% belegt"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ディスク使用 %lld%%"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disco %lld%% usado"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Диск: занято %lld%%"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Диск: зайнято %lld%%"
+          }
+        }
+      }
+    },
+    "Switch on Disk used in System settings to show disk space used.": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在“系统”设置中打开“磁盘已用”以显示已用磁盘空间。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在「系統」設定中開啟「磁碟已用」以顯示已用磁碟空間。"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activez Disque utilisé dans les réglages Système pour afficher l'espace disque utilisé."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktiviere „Belegter Speicher“ in den System-Einstellungen, um den belegten Speicherplatz anzuzeigen."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "「システム」設定で「ディスク使用」をオンにすると使用容量が表示されます。"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ative Disco usado nos ajustes de Sistema para mostrar o espaço em disco usado."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Включите «Занято на диске» в настройках «Система», чтобы показывать занятое место."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Увімкніть «Зайнято на диску» в налаштуваннях «Система», щоб показувати зайняте місце."
+          }
+        }
+      }
+    },
+    "This Mac's CPU and GPU load and disk use.": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "这台 Mac 的 CPU 和 GPU 负载以及磁盘使用量。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "這台 Mac 的 CPU 與 GPU 負載以及磁碟使用量。"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La charge CPU et GPU de ce Mac et l'utilisation du disque."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CPU- und GPU-Last sowie Speicherbelegung dieses Mac."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "この Mac の CPU と GPU の負荷、およびディスク使用量。"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A carga de CPU e GPU deste Mac e o uso do disco."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Нагрузка CPU и GPU этого Mac и занятость диска."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Навантаження CPU та GPU цього Mac і зайнятість диска."
+          }
+        }
+      }
+    },
+    "Disk used ring": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "磁盘已用圆环"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "磁碟已用圓環"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anneau Disque utilisé"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ring „Belegter Speicher“"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ディスク使用リング"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anel de disco usado"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Кольцо занятого места"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Кільце зайнятого місця"
+          }
+        }
+      }
+    },
+    "Show disk space used": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "显示已用磁盘空间"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "顯示已用磁碟空間"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afficher l'espace disque utilisé"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belegten Speicherplatz anzeigen"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用ディスク容量を表示"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mostrar espaço em disco usado"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Показывать занятое место"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Показувати зайняте місце"
+          }
+        }
+      }
+    },
+    "Each ring is green until it crosses yellow, then red, as load or disk use rises.": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "随着负载或磁盘使用量上升,每个圆环先为绿色,越过黄色界限后变黄,再变红。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "隨著負載或磁碟使用量上升,每個圓環先為綠色,越過黃色界限後變黃,再變紅。"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chaque anneau reste vert jusqu'au seuil jaune, puis rouge, à mesure que la charge ou l'utilisation du disque augmente."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jeder Ring bleibt grün bis zur gelben Grenze, dann rot, wenn Last oder Speicherbelegung steigen."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "負荷やディスク使用量が上がると、各リングは緑から黄色の境界を越えて黄色、さらに赤になります。"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cada anel fica verde até cruzar o amarelo, depois vermelho, conforme a carga ou o uso do disco aumenta."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Каждое кольцо зелёное до жёлтой границы, затем красное — по мере роста нагрузки или занятости диска."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Кожне кільце зелене до жовтої межі, потім червоне — зі зростанням навантаження або зайнятості диска."
           }
         }
       }

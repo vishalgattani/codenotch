@@ -88,7 +88,7 @@ private enum SettingsSection: String, CaseIterable, Identifiable, Hashable {
         case .lmstudio:      return L10n.t("Models loaded in LM Studio on this Mac.")
         case .omlx:          return L10n.t("Models loaded in oMLX on this Mac.")
         case .openclaw:      return L10n.t("How full the local OpenClaw agent's context is.")
-        case .system:        return L10n.t("This Mac's CPU and GPU load and free disk space.")
+        case .system:        return L10n.t("This Mac's CPU and GPU load and disk use.")
         case .customEndpoints: return L10n.t("OpenAI-compatible APIs, local runtimes and custom proxies.")
         case .remoteHosts:    return L10n.t("Claude and Codex accounts on servers you reach over SSH.")
         case .appearance:    return L10n.t("How the notch looks and where it sits.")
@@ -777,11 +777,11 @@ struct SettingsView: View {
                     Section {
                         SystemRingColorsRow(store: usageStore, providerID: SystemProviders.cpuID, title: "CPU")
                         SystemRingColorsRow(store: usageStore, providerID: SystemProviders.gpuID, title: "GPU")
-                        SystemRingColorsRow(store: usageStore, providerID: SystemProviders.diskID, title: L10n.t("Disk free"))
+                        SystemRingColorsRow(store: usageStore, providerID: SystemProviders.diskID, title: L10n.t("Disk used"))
                     } header: {
                         Text(L10n.t("Ring colours"))
                     } footer: {
-                        Text(L10n.t("Each ring is green until it crosses yellow, then red. CPU and GPU worsen as load rises; Disk free worsens as free space falls."))
+                        Text(L10n.t("Each ring is green until it crosses yellow, then red, as load or disk use rises."))
                     }
                 }
                 .formStyle(.grouped)

@@ -3,9 +3,9 @@ import Foundation
 /// The user's own colour bands for one of the System rings, kept in
 /// UserDefaults under the ring's provider id.
 ///
-/// `higherIsWorse` decides which way the two limits read. CPU and GPU load
-/// turn yellow at `watch` and red at `critical` and above; free disk space
-/// turns yellow below `watch` and red below `critical`. The providers turn
+/// `higherIsWorse` decides which way the two limits read: yellow at `watch`
+/// and red at `critical` and above, or below them when false. Every System
+/// ring today (CPU, GPU, disk used) worsens as it rises. The providers turn
 /// this into the window's `bandOverride`, so the colour holds whichever way
 /// the ring is drawn.
 struct RingThresholds: Codable, Equatable {
@@ -33,9 +33,7 @@ struct RingThresholds: Codable, Equatable {
     }
 
     static func defaults(for providerID: String) -> RingThresholds {
-        providerID == SystemProviders.diskID
-            ? RingThresholds(watch: 0.50, critical: 0.20, higherIsWorse: false)
-            : RingThresholds(watch: 0.50, critical: 0.80, higherIsWorse: true)
+        RingThresholds(watch: 0.50, critical: 0.80, higherIsWorse: true)
     }
 
     static func key(for providerID: String) -> String { "ringThresholds.\(providerID)" }
@@ -43,6 +41,10 @@ struct RingThresholds: Codable, Equatable {
     static func load(for providerID: String, from defaults: UserDefaults = .standard) -> RingThresholds {
         guard let data = defaults.data(forKey: key(for: providerID)),
               let stored = try? JSONDecoder().decode(RingThresholds.self, from: data) else {
+            return Self.defaults(for: providerID)
+        }
+        // Limits saved when a ring read the other way would colour it backwards.
+        guard stored.higherIsWorse == Self.defaults(for: providerID).higherIsWorse else {
             return Self.defaults(for: providerID)
         }
         return stored.clamped()

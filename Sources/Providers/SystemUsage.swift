@@ -62,14 +62,13 @@ enum SystemUsage {
                     bandOverride: thresholds?.band(for: fraction))
     }
 
-    /// The disk ring fills by what is *free*, so its arc and number both say
-    /// the free share (90% means 90% free). That is the reverse of the
-    /// other rings, so the colour never comes from `usedFraction`: it is
-    /// always `bandOverride`, judged on the free share by `thresholds`.
+    /// The disk ring reads like every other ring: it fills by the share in
+    /// use (1 − free), coloured by `thresholds`.
     static func diskWindow(freeFraction: Double, thresholds: RingThresholds) -> LimitWindow {
-        LimitWindow(id: "disk", label: L10n.t("Disk free"), usedFraction: freeFraction,
-                    detail: L10n.t("Disk \(Int((freeFraction * 100).rounded()))% free"),
-                    bandOverride: thresholds.band(for: freeFraction))
+        let used = min(max(1 - freeFraction, 0), 1)
+        return LimitWindow(id: "disk", label: L10n.t("Disk used"), usedFraction: used,
+                           detail: L10n.t("Disk \(Int((used * 100).rounded()))% used"),
+                           bandOverride: thresholds.band(for: used))
     }
 
     // MARK: Reading the machine
