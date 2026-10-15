@@ -34,6 +34,7 @@ enum ProviderGlyph: String, Codable, Equatable {
     /// This Mac's own CPU and GPU load, drawn as SF Symbols.
     case systemCPU = "system-cpu"
     case systemGPU = "system-gpu"
+    case systemDisk = "system-disk"
     case opencode
     case commandcode
     case copilot
@@ -65,6 +66,7 @@ enum ProviderGlyph: String, Codable, Equatable {
         switch self {
         case .systemCPU: return "cpu"
         case .systemGPU: return "cube.transparent"
+        case .systemDisk: return "internaldrive"
         default: return nil
         }
     }
@@ -94,7 +96,7 @@ enum ProviderGlyph: String, Codable, Equatable {
         // The blob's ink already fills most of its box, so no evening out.
         case .grokbot: return 1.0
         case .openclaw: return 0.9
-        case .systemCPU, .systemGPU: return 0.85
+        case .systemCPU, .systemGPU, .systemDisk: return 0.85
         case .opencode: return 0.95
         case .commandcode: return 0.96
         case .copilot: return 0.96
@@ -158,7 +160,7 @@ enum ProviderGlyph: String, Codable, Equatable {
         case .glm:    return GlyphOutline.glm
         case .devin, .qwen, .gemma, .meta, .deepseek, .mistral, .lmstudio,
              .omlx, .qianwenAI, .qoder, .amp, .apify, .llamaCpp, .grokbot, .openclaw,
-             .systemCPU, .systemGPU: return []
+             .systemCPU, .systemGPU, .systemDisk: return []
         case .grok:   return GlyphOutline.grok
         case .opencode: return GlyphOutline.opencode
         case .commandcode: return GlyphOutline.commandcode
